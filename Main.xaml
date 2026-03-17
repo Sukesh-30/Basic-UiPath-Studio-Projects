@@ -28,6 +28,7 @@
       <x:String>System.Reflection</x:String>
       <x:String>System.Linq.Expressions</x:String>
       <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -73,6 +74,7 @@
       <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="990,396.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -83,17 +85,12 @@
     </sap:WorkflowViewStateService.ViewState>
     <Sequence sap:VirtualizedContainerService.HintSize="450,374" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
-        <Variable x:TypeArguments="x:String" Name="FirstName">
+        <Variable x:TypeArguments="x:String" Name="Result" />
+        <Variable x:TypeArguments="x:Int32" Name="Number">
           <Variable.Default>
-            <Literal x:TypeArguments="x:String">SUKESH</Literal>
+            <Literal x:TypeArguments="x:Int32" Value="240310" />
           </Variable.Default>
         </Variable>
-        <Variable x:TypeArguments="x:String" Name="LastName">
-          <Variable.Default>
-            <Literal x:TypeArguments="x:String">M</Literal>
-          </Variable.Default>
-        </Variable>
-        <Variable x:TypeArguments="x:String" Name="FullName" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -102,13 +99,13 @@
       </sap:WorkflowViewStateService.ViewState>
       <Assign sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[FullName]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[Result]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[FullName +" "+LastName]</InArgument>
+          <InArgument x:TypeArguments="x:String">["The number is " + Number.ToString]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="416,114.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Your full name is&quot; + FirstName]" />
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="416,114.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[Result]" />
     </Sequence>
   </Sequence>
 </Activity>
